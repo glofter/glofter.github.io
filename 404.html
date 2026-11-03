@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="GLofter — photography studios on ArcBlock. Studio, Hub, and theme packs. Phase 5+ beta; payments frozen." />
+  <title>GLofter — photography studios on ArcBlock</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span> GLofter</div>
+      <nav>
+        <a href="/" aria-current="page">Home</a>
+        <a href="/product">Product</a>
+        <a href="/docs">Docs</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <span class="pill">Phase 5+ · Choice B · payments frozen</span>
+      <h1>Photography studios that own their audience</h1>
+      <p>
+        GLofter helps photographers run a <strong>Studio</strong> site, publish albums, take booking requests,
+        and appear on a local <strong>Hub</strong> — with DID Connect identity on ArcBlock.
+        This is the <strong>glofter.com</strong> marketing/docs surface for the Hiker ARC rebuild, not a sales checkout.
+      </p>
+      <div class="actions">
+        <a class="btn" href="/product">Product overview</a>
+        <a class="btn secondary" href="/docs">Local docs &amp; ports</a>
+        <a class="btn ghost" href="http://127.0.0.1:3101/" rel="noreferrer">Open Studio →</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <article class="card">
+        <h2>Studio</h2>
+        <p>Public catalog, albums, booking requests, manage console with DID Connect + media uploads.</p>
+        <p class="ports"><a href="http://127.0.0.1:3101/">http://127.0.0.1:3101/</a> · <a href="http://127.0.0.1:3101/manage">/manage</a></p>
+      </article>
+      <article class="card">
+        <h2>Hub</h2>
+        <p>Discover studios, search, DID-signed join apply, pull-sync from Studio public APIs.</p>
+        <p class="ports"><a href="http://127.0.0.1:3102/">http://127.0.0.1:3102/</a></p>
+      </article>
+      <article class="card">
+        <h2>Themes</h2>
+        <p>Real packs (<code>minimal</code> / <code>magazine</code>): manifest, tokens, layouts, lightbox — not legacy React.</p>
+        <p class="ports"><a href="/product#themes">Product → Themes</a></p>
+      </article>
+    </div>
+
+    <h2 class="section-title">Status (honest)</h2>
+    <div class="callout">
+      <strong>What is real today:</strong> Choice B Fastify + SQLite Studio/Hub; official DID Connect login (QR);
+      JPEG/PNG uploads; DID-signed Hub join with pending queue; theme packs apply/download; AUP shells on ARC beta.74
+      deep-linking to Fastify siblings.
+    </div>
+    <div class="callout warn">
+      <strong>Still frozen / out of scope:</strong> PaymentKit · mainnet ABT · real money · Stripe/subscriptions ·
+      paid theme market · legacy React theme runtime. TBA TransferV2 only with
+      <code>GLOFTER_ENABLE_TBA_PAYMENT=1</code> (beta only).
+    </div>
+
+    <div class="card">
+      <h3>Run locally (Hiker)</h3>
+      <p class="muted small">From <code>/workspace/glofter-arc</code>:</p>
+      <ul class="list">
+        <li><code>pnpm start:studio</code> → <a href="http://127.0.0.1:3101/">:3101</a></li>
+        <li><code>pnpm start:hub</code> → <a href="http://127.0.0.1:3102/">:3102</a></li>
+        <li><code>node website/server.js</code> → <a href="http://127.0.0.1:3100/">:3100</a> (this site)</li>
+      </ul>
+      <p class="muted small" style="margin-top:0.85rem">Full notes: <a href="/docs">Docs</a> · monorepo <code>docs/status.md</code>.</p>
+    </div>
+
+    <footer>
+      <span>© GLofter · glofter.com marketing/docs · no checkout on this site</span>
+      <span><a href="/contact">Contact (no mail send)</a></span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="GLofter product: Studio, Hub, and theme packs. Local demo ports. Payments frozen." />
+  <title>Product — GLofter</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span> GLofter</div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/product" aria-current="page">Product</a>
+        <a href="/docs">Docs</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <span class="pill">Product overview · Phase 5+</span>
+    <h1 style="margin-top:0.75rem">Studio, Hub, and themes</h1>
+    <p class="muted" style="max-width:42rem">
+      Three surfaces in the ARC rebuild. Links below are <strong>local demo ports</strong> on the Hiker box —
+      not production SaaS URLs. Nothing here sells a subscription or takes payment.
+    </p>
+
+    <article class="card" id="studio">
+      <h2>Studio</h2>
+      <p>The photographer’s public site and manage console (Choice B: Fastify + SQLite).</p>
+      <ul class="list">
+        <li><strong>Public</strong> — photographers, albums, services, booking request form</li>
+        <li><strong>Manage</strong> — DID Connect QR (official <code>@arcblock/did-connect-js</code>), demo/token fallback, Hub signed apply, JPEG/PNG uploads</li>
+        <li><strong>Themes</strong> — apply pack; public UI loads pack CSS + lightbox</li>
+        <li><strong>Payment</strong> — booking payment frozen by default; optional beta TBA behind flag</li>
+      </ul>
+      <p class="ports">
+        <a class="btn" href="http://127.0.0.1:3101/" rel="noreferrer">Open Studio</a>
+        <a class="btn secondary" href="http://127.0.0.1:3101/manage" rel="noreferrer">Manage</a>
+        <span class="muted small"> · <code>http://127.0.0.1:3101/</code></span>
+      </p>
+    </article>
+
+    <article class="card" id="hub">
+      <h2>Hub</h2>
+      <p>Discover and search studios; join via DID-signed apply; pull catalog from Studio public APIs.</p>
+      <ul class="list">
+        <li><strong>Discover / search</strong> — approved studios and items</li>
+        <li><strong>Join</strong> — <code>POST /api/hub/join/apply</code> with <code>x-glofter-did/sig/ts</code>; pending queue; operator approve</li>
+        <li><strong>Sync</strong> — Hub pulls Studio <code>/api/photographers</code> &amp; <code>/api/albums</code> (not legacy signed push)</li>
+        <li><strong>Not included</strong> — PaymentKit join fee, NFT stake, paid theme market</li>
+      </ul>
+      <p class="ports">
+        <a class="btn" href="http://127.0.0.1:3102/" rel="noreferrer">Open Hub</a>
+        <span class="muted small"> · <code>http://127.0.0.1:3102/</code></span>
+      </p>
+    </article>
+
+    <article class="card" id="themes">
+      <h2>Theme packs</h2>
+      <p>Package <code>@glofter/themes</code> ships real packs — not CSS-token stubs alone.</p>
+      <ul class="list">
+        <li><strong>Packs</strong> — <code>minimal</code>, <code>magazine</code></li>
+        <li><strong>Each pack</strong> — <code>pack.manifest.json</code>, tokens, layouts, lightbox chrome, <code>pack.css</code> bundle</li>
+        <li><strong>Studio</strong> — list / apply / download ZIP from manage <strong>Themes</strong></li>
+        <li><strong>Still stub</strong> — not the legacy React theme runtime; no paid Hub theme store</li>
+      </ul>
+      <p class="ports">
+        <a class="btn secondary" href="http://127.0.0.1:3101/manage#/themes" rel="noreferrer">Studio → Themes</a>
+        <a class="btn secondary" href="http://127.0.0.1:3101/api/themes" rel="noreferrer">GET /api/themes</a>
+      </p>
+    </article>
+
+    <div class="callout warn">
+      <strong>Identity &amp; payments:</strong> DID Connect for manage is live (QR + poll). Customer booking
+      <span class="badge-off">PaymentKit / mainnet</span> remain out. TBA TransferV2 only when
+      <code>GLOFTER_ENABLE_TBA_PAYMENT=1</code>.
+    </div>
+
+    <footer>
+      <span><a href="/">← Home</a> · <a href="/docs">Docs</a></span>
+      <span>No checkout on glofter.com stub</span>
+    </footer>
+  </div>
+</body>
+</html>
